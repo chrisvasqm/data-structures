@@ -8,6 +8,10 @@ public class Array {
         items = new int[size];
     }
 
+    public int[] getItems() {
+        return items;
+    }
+
     public void print() {
         for (var i = 0; i < count; i++)
             System.out.println(items[i]);
@@ -50,5 +54,16 @@ public class Array {
             if (max < item) max = item;
 
         return max;
+    }
+
+    public Array intersect(Array other) {
+        var shared = new Array(3);
+
+        for (var item : items) {
+            for (var otherItem : other.getItems())
+                if (item == otherItem) shared.insert(item);
+        }
+
+        return shared;
     }
 }
