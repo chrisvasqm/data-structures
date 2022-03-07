@@ -73,4 +73,13 @@ public class Array {
 
         return shared;
     }
+
+    public void reverse() {
+        int[] newItems = new int[count];
+
+        for (int i = 0; i < count; i++)
+            newItems[i] = items[count - i - 1];
+
+        items = newItems;
+    }
 }
