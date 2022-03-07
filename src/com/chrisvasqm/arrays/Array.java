@@ -42,4 +42,13 @@ public class Array {
 
         return -1;
     }
+
+    public int max() {
+        int max = 0;
+
+        for (var item : items)
+            if (max < item) max = item;
+
+        return max;
+    }
 }
