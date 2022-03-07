@@ -14,6 +14,12 @@ public class Array {
     }
 
     public void insert(int item) {
+        resizeIfNeeded();
+
+        items[count++] = item;
+    }
+
+    private void resizeIfNeeded() {
         if (items.length == count) {
             var newItems = new int[count * 2];
 
@@ -22,13 +28,13 @@ public class Array {
 
             items = newItems;
         }
-
-        items[count++] = item;
     }
 
     public void insertAt(int index, int item) {
         if (index < 0 || index >= count)
             throw new IllegalArgumentException();
+
+        resizeIfNeeded();
 
         for (var i = index; i < count; i++)
             items[i + 1] = items[i];
