@@ -26,6 +26,17 @@ public class Array {
         items[count++] = item;
     }
 
+    public void insertAt(int index, int item) {
+        if (index < 0 || index >= count)
+            throw new IllegalArgumentException();
+
+        for (var i = index; i < count; i++)
+            items[i + 1] = items[i];
+
+        items[index] = item;
+        count++;
+    }
+
     public void removeAt(int index) {
         if (index < 0 || index >= count)
             throw new IllegalArgumentException();
