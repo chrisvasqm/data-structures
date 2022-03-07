@@ -8,10 +8,6 @@ public class Array {
         items = new int[size];
     }
 
-    public int[] getItems() {
-        return items;
-    }
-
     public void print() {
         for (var i = 0; i < count; i++)
             System.out.println(items[i]);
@@ -57,10 +53,10 @@ public class Array {
     }
 
     public Array intersect(Array other) {
-        var shared = new Array(3);
+        var shared = new Array(count);
 
         for (var item : items) {
-            for (var otherItem : other.getItems())
+            for (var otherItem : other.items)
                 if (item == otherItem) shared.insert(item);
         }
 
