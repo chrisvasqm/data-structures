@@ -113,4 +113,15 @@ public class LinkedList {
 
         return array;
     }
+
+    public LinkedList reverse() {
+        var newList = new LinkedList();
+        var current = first;
+        while (current != null) {
+            newList.addLast(current.value);
+            current = current.next;
+        }
+
+        return newList;
+    }
 }
