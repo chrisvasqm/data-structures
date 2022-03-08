@@ -1,5 +1,7 @@
 package com.chrisvasqm.linkedlist;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
     private Node first;
     private Node last;
@@ -52,5 +54,18 @@ public class LinkedList {
 
     public boolean contains(int item) {
         return indexOf(item) != -1;
+    }
+
+    public void removeFirst() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
+        var second = first.next;
+        first.next = null;
+        first = second;
     }
 }
