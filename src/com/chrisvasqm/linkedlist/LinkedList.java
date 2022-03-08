@@ -42,10 +42,15 @@ public class LinkedList {
         while (current != null) {
             if (current.value == item)
                 return index;
+
             current = current.next;
             index++;
         }
 
         return -1;
+    }
+
+    public boolean contains(int item) {
+        return indexOf(item) != -1;
     }
 }
