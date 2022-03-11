@@ -114,15 +114,20 @@ public class LinkedList {
         return array;
     }
 
-    public LinkedList reverse() {
-        var newList = new LinkedList();
+    public void reverse() {
+        if (isEmpty()) return;
 
-        var current = first;
+        var previous = first;
+        var current = first.next;
         while (current != null) {
-            newList.addLast(current.value);
-            current = current.next;
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
 
-        return newList;
+        last = first;
+        last.next = null;
+        first = previous;
     }
 }
